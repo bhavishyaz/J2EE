@@ -13,7 +13,7 @@ def verify():
     # when the endpoint is registered as a webhook, it must echo back
     # the 'hub.challenge' value it receives in the query arguments
     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
-        if not request.args.get("hub.verify_token") == os.environ["EAAFT1sPKcnwBABdyhUKHTbmIAZC1OBjZBD98STZCjWZAh6v8ZCjpBx0WSQloaoy6HnoGRvmi5savYgSByGJospBG5OgH4sjtVYlliYBifuLqw2Bj5GQyHhXkAr4C6yXCVbGrPVEfY4P0PBnifMvwLdDkHaV2Psw8prMBLMuAm1gZDZD"]:
+        if not request.args.get("hub.verify_token") == os.environ["VERIFY_TOKEN"]:
             return "Verification token mismatch", 403
         return request.args["hub.challenge"], 200
 
